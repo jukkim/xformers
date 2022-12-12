@@ -283,6 +283,14 @@ class clean(distutils.command.clean.clean):  # type: ignore
         distutils.command.clean.clean.run(self)
 
 
+class clean2(distutils.command.clean.clean):  # type: ignore
+    def run(self):
+        if os.path.exists(".gitignore"):
+            with open(".gitignore", "r") as f:
+                ignores = f.read()
+
+
+
 if __name__ == "__main__":
     write_version_file()
     # Embed a fixed version of flash_attn
@@ -304,7 +312,7 @@ if __name__ == "__main__":
         ext_modules=get_extensions(),
         cmdclass={
             "build_ext": BuildExtension.with_options(no_python_abi_suffix=True),
-            "clean": ,
+            "clean": clean2,
         },
         url="https://facebookresearch.github.io/xformers/",
         python_requires=">=3.6",
