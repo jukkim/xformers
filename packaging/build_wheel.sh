@@ -29,4 +29,3 @@ BASE_BUILD_DIR=build/$CU_VERSION-py$PYTHON_VERSION-pt$PYTORCH_VERSION
 python setup.py \
   build -b "$BASE_BUILD_DIR" \
   bdist_wheel -b "$BASE_BUILD_DIR/build_dist" -d "wheels"
-rm -rf "$BASE_BUILD_DIR"
