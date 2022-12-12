@@ -304,7 +304,7 @@ if __name__ == "__main__":
         ext_modules=get_extensions(),
         cmdclass={
             "build_ext": BuildExtension.with_options(no_python_abi_suffix=True),
-            "clean": clean,
+            "clean": ,
         },
         url="https://facebookresearch.github.io/xformers/",
         python_requires=">=3.6",
